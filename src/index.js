@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import SiderDemo from './components/SiderDemo'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <SiderDemo />
   </React.StrictMode>,
   document.getElementById('root')
 );
