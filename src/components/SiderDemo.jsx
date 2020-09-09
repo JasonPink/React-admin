@@ -26,6 +26,10 @@ class SiderDemo extends React.Component {
         {
           title: '菜单3',
           icon: 'UploadOutlined'
+        },
+        {
+          title: '菜单4',
+          icon: 'UploadOutlined'
         }
       ]
     }
