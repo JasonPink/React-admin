@@ -8,61 +8,30 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
+import Container from "./page/Layout.jsx";
 import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-import SiderDemo from "./components/SiderDemo";
 import "./style/index.less";
 
-// function Index() {
-//   return <div>Index</div>;
-// }
-class Index extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <div>Index</div>
-        <NavLink to="/index/childa">A</NavLink>
-        <NavLink to="/index/childb">B</NavLink>
-        <Route path="/index/childa" component={ChildA}></Route>
-        <Route path="/index/childb" component={ChildB}></Route>
-      </div>
-    );
-  }
-}
-
 function Home() {
-  return <div>Home</div>;
-}
-function About() {
-  return <div>About</div>;
+  return <div>这是home组件</div>;
 }
 
-function ChildA() {
-  return <div>ChildA</div>;
-}
-
-function ChildB() {
-  return <div>ChildB</div>;
+function Index() {
+  return <div>这是index组件</div>;
 }
 
 ReactDOM.render(
   <Router>
-    <div>
-      <NavLink to="/index/childa">Index</NavLink>
-      <NavLink to="/home">Home</NavLink>
-      <NavLink to="/about">About</NavLink>
-    </div>
-    <Switch>
-      <Route path="/index" component={Index}></Route>
-      <Route path="/home" component={Home}></Route>
-      <Route path="/about" component={About}></Route>
-      <Redirect from="/" to="/index/childa" exact></Redirect>
-    </Switch>
+    <Route
+      path="/"
+      render={() => (
+        <Container>
+          <Route exact path="/" component={Index} />
+          <Route path="/home" component={Home} />
+        </Container>
+      )}
+    >
+    </Route>
   </Router>,
   document.getElementById("root")
 );
@@ -70,4 +39,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//serviceWorker.unregister();
