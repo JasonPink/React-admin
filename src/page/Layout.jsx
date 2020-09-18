@@ -31,23 +31,22 @@ class Container extends Component {
         </Header>
         <Layout>
           <Sider width={200} className="site-layout-background">
-            <Menu
-              mode="inline"
-              style={{ height: "100%", borderRight: 0 }}
-            >
+            <Menu mode="inline" style={{ height: "100%", borderRight: 0 }}>
               {menus.map((item, index) => {
                 return item.subs ? (
                   <SubMenu key={index} title={item.title}>
                     {item.subs.map((item1, number) => {
                       return (
                         <Menu.Item key={number} id={number}>
-                          {item1.title}
+                          <Link to={item1.key}>{item1.title}</Link>
                         </Menu.Item>
                       );
                     })}
                   </SubMenu>
                 ) : (
-                  <Menu.Item key={index}>{item.title}</Menu.Item>
+                  <Menu.Item key={index}>
+                    <Link to={item.key}>{item.title}</Link>
+                  </Menu.Item>
                 );
               })}
             </Menu>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class About extends Component {
+class TodoList extends Component {
   render() {
     return (
       <div> 
-        这里是About
+        这里是Index
       </div>
     );
   }
 }
 
-export default about;
+export default TodoList;

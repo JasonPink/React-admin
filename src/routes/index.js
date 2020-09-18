@@ -21,7 +21,57 @@ const menus = [
   },
   {
     key: "/app/user",
+    title: "生死簿",
+    icon: "scan",
+    subs: [
+      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
+      { key: "/app/user/icons", title: "图标", component: "Icons" },
+      { key: "/app/user/spins", title: "加载中", component: "Spins" },
+    ],
+  },
+  {
+    key: "/app/user",
     title: "用户中心",
+    icon: "scan",
+    subs: [
+      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
+      { key: "/app/user/icons", title: "图标", component: "Icons" },
+      { key: "/app/user/spins", title: "加载中", component: "Spins" },
+    ],
+  },
+  {
+    key: "/app/user",
+    title: "冥币管理",
+    icon: "scan",
+    subs: [
+      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
+      { key: "/app/user/icons", title: "图标", component: "Icons" },
+      { key: "/app/user/spins", title: "加载中", component: "Spins" },
+    ],
+  },
+  {
+    key: "/app/user",
+    title: "日志管理",
+    icon: "scan",
+    subs: [
+      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
+      { key: "/app/user/icons", title: "图标", component: "Icons" },
+      { key: "/app/user/spins", title: "加载中", component: "Spins" },
+    ],
+  },
+  {
+    key: "/app/user",
+    title: "系统管理",
+    icon: "scan",
+    subs: [
+      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
+      { key: "/app/user/icons", title: "图标", component: "Icons" },
+      { key: "/app/user/spins", title: "加载中", component: "Spins" },
+    ],
+  },
+  {
+    key: "/app/user",
+    title: "勾魂管理",
     icon: "scan",
     subs: [
       { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
