@@ -21,6 +21,7 @@ import Dashborad from "./components/Dashborad.jsx"
 import Sidebar from "./components/Sidebar.jsx"
 import Routeconfig from "./components/Routeconfig.jsx"
 import Login from "./page/Login.jsx"
+import 'reset-css';
 
 // ReactDOM.render(
 //   <Router>
