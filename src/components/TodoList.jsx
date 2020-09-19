@@ -3,6 +3,7 @@ import { Input, Button } from "antd";
 import "../style/todolist.less";
 
 class TodoList extends Component {
+  history = [];
   constructor(props) {
     super(props);
     this.state = {
@@ -23,15 +24,18 @@ class TodoList extends Component {
         },
       ],
     };
+    this.history = this.state.list.slice();
   }
 
-  add = () => {
-    console.log(this.state);
+  add = (e) => {
+    console.log(e.target);
+    e.target.value = "";
     let item = {
       text: this.state.value,
       status: false,
     };
     let list = this.state.list.slice();
+    this.history = [...list, item];
     this.setState({
       value: "",
       list: [...list, item],
@@ -55,15 +59,34 @@ class TodoList extends Component {
     });
   };
 
+  del = (index) => {
+    console.log('index', index)
+    let list = this.state.list;
+    list.splice(index, 1);
+    this.history = list;
+    this.setState({
+      list: list,
+    })
+  }
+
   filterList = (current) => {
-    
-    if(current === 'all'){
-
-    }else if(current === 'yes'){
-
-    }else{
-
+    let currentList = [];
+    if (current === "all") {
+      currentList = this.history.slice();
+    } else if (current === "yes") {
+      currentList = this.history.filter((item) => {
+        return item.status;
+      });
+    } else {
+      currentList = this.history.filter((item) => {
+        return !item.status;
+      });
     }
+
+    this.setState({
+      current: current,
+      list: currentList,
+    });
   };
 
   render() {
@@ -74,7 +97,7 @@ class TodoList extends Component {
           <Input
             onChange={this.change}
             placeholder="请输入内容"
-            onPressEnter={this.add}
+            onPressEnter={(e) => this.add(e)}
           />
         </div>
         <ul>
@@ -83,6 +106,7 @@ class TodoList extends Component {
               <li style={{ backgroundColor: item.status ? "red" : "" }}>
                 {item.text}
               </li>
+              <Button onClick={() => this.del(index)} >删除</Button>
               <Button onClick={() => this.changeStatus(index)} type="primary">
                 {item.status ? "取消" : "完成"}
               </Button>
