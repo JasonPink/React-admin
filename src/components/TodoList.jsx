@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Input, Button } from "antd";
 import "../style/todolist.less";
+import Home from './Home'
 
 class TodoList extends Component {
   history = [];
@@ -28,7 +29,6 @@ class TodoList extends Component {
   }
 
   add = (e) => {
-    console.log(e.target);
     e.target.value = "";
     let item = {
       text: this.state.value,
@@ -50,7 +50,6 @@ class TodoList extends Component {
   };
 
   changeStatus = (index) => {
-    console.log("index", index);
     let list = this.state.list;
     list[index].status = !list[index].status;
 
@@ -60,7 +59,6 @@ class TodoList extends Component {
   };
 
   del = (index) => {
-    console.log('index', index)
     let list = this.state.list;
     list.splice(index, 1);
     this.history = list;
@@ -133,6 +131,7 @@ class TodoList extends Component {
             未完成
           </Button>
         </div>
+        <Home/>
       </div>
     );
   }

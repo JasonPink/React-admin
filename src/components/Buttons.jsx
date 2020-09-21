@@ -4,7 +4,7 @@ class Buttons extends Component {
   render() {
     return (
       <div>
-        这里是Buttons组件
+        BUtton
       </div>
     );
   }
