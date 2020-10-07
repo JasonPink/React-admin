@@ -13,7 +13,7 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
-import menus from "../routes/index.js";
+import menus from "../routes/config";
 const { SubMenu } = Menu;
 const { Header, Footer, Sider, Content } = Layout;
 

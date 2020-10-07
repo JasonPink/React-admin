@@ -74,7 +74,7 @@ const data = [
   },
 ];
 
-class MyTable extends Component {
+class SimpleTable extends Component {
   render() {
     return (
      <Table columns={columns} dataSource={data} />
@@ -82,4 +82,4 @@ class MyTable extends Component {
   }
 }
 
-export default MyTable;
+export default SimpleTable;

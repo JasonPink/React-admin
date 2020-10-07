@@ -1,84 +1,39 @@
-// export interface IFMenuBase {
-//   key: string;
-//   title: string;
-//   icon?: string;
-//   component?: string;
-//   query?: string;
-//   requireAuth?: string;
-//   route?: string;
-//   login?: boolean;
-// }
+import React from "react";
+import { Route, Redirect, Switch } from "react-router-dom";
+import routesConfig from "./config";
+import AllComponents from "../components/index";
 
-// export interface IFMenu extends IFMenuBase {
-//   subs?: IFMenu[];
-// }
-const menus = [
-  {
-    key: "/app/dashboard/index",
-    title: "首页",
-    icon: "mobile",
-    component: "Dashboard",
-  },
-  {
-    key: "/app/user",
-    title: "生死簿",
-    icon: "scan",
-    subs: [
-      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
-      { key: "/app/user/icons", title: "图标", component: "Icons" },
-      { key: "/app/user/spins", title: "加载中", component: "Spins" },
-    ],
-  },
-  {
-    key: "/app/user",
-    title: "用户中心",
-    icon: "scan",
-    subs: [
-      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
-      { key: "/app/user/icons", title: "图标", component: "Icons" },
-      { key: "/app/user/spins", title: "加载中", component: "Spins" },
-    ],
-  },
-  {
-    key: "/app/user",
-    title: "冥币管理",
-    icon: "scan",
-    subs: [
-      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
-      { key: "/app/user/icons", title: "图标", component: "Icons" },
-      { key: "/app/user/spins", title: "加载中", component: "Spins" },
-    ],
-  },
-  {
-    key: "/app/user",
-    title: "日志管理",
-    icon: "scan",
-    subs: [
-      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
-      { key: "/app/user/icons", title: "图标", component: "Icons" },
-      { key: "/app/user/spins", title: "加载中", component: "Spins" },
-    ],
-  },
-  {
-    key: "/app/user",
-    title: "系统管理",
-    icon: "scan",
-    subs: [
-      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
-      { key: "/app/user/icons", title: "图标", component: "Icons" },
-      { key: "/app/user/spins", title: "加载中", component: "Spins" },
-    ],
-  },
-  {
-    key: "/app/user",
-    title: "勾魂管理",
-    icon: "scan",
-    subs: [
-      { key: "/app/user/buttons", title: "按钮", component: "Buttons" },
-      { key: "/app/user/icons", title: "图标", component: "Icons" },
-      { key: "/app/user/spins", title: "加载中", component: "Spins" },
-    ],
-  },
-];
+const CRouter = () => {
+  const createMenu = (r) => {
+    const route = (r) => {
+      const Component = r.component && AllComponents[r.component];
+      return (
+        <Route
+          key={r.route || r.key}
+          exact
+          path={r.route || r.key}
+          component={Component}
+        />
+      );
+    };
 
-export default menus;
+    const subRoute = (r) =>
+      r.subs &&
+      r.subs.map((subR) => (subR.subs ? subRoute(subR) : route(subR)));
+
+    return r.component ? route(r) : subRoute(r);
+  };
+  const createRoute = () =>
+    routesConfig.map((item) => {
+      return createMenu(item);
+    });
+  console.log("ssss", createRoute());
+  return (
+    <Switch>
+      {createRoute()}
+      {/* <Route render={() => <Redirect to="/404" />} /> */}
+    </Switch>
+  );
+};
+
+export default CRouter;

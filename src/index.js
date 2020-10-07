@@ -23,6 +23,9 @@ import Routeconfig from "./components/Routeconfig.jsx"
 import Login from "./page/Login.jsx"
 import 'reset-css';
 
+import Routes from './routes/index'
+
+
 // ReactDOM.render(
 //   <Router>
 //     <Route path="/app" component={Container}>
@@ -104,15 +107,7 @@ ReactDOM.render(
     <Route exact path="/" component={Login}></Route>
     <Route path="/app">
       <Container>
-        <Route path="/app/dashboard/index">
-          <TodoList />
-        </Route>
-        <Route path="/app/user/buttons">
-          <Buttons />
-        </Route>
-        <Route path="/app/user/icons">
-          <Icons />
-        </Route>
+        <Routes />
       </Container>
     </Route>
   </Router>,
