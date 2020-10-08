@@ -13,12 +13,6 @@ import {
 import Container from "./page/Layout.jsx";
 import "./index.css";
 import "./style/index.less";
-
-import Buttons from "./components/Buttons.jsx"
-import Icons from "./components/Icons.jsx"
-import TodoList from "./components/TodoList.jsx"
-import Dashborad from "./components/Dashborad.jsx"
-import Sidebar from "./components/Sidebar.jsx"
 import Routeconfig from "./components/Routeconfig.jsx"
 import Login from "./page/Login.jsx"
 import 'reset-css';

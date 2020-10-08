@@ -23,11 +23,7 @@ class Container extends Component {
       <Layout style={{ height: "100%" }}>
         <Header className="header">
           <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
-          </Menu>
+          <h2 style={{color: '#fff', fontSize: '20px'}}>后台管理系统</h2>
         </Header>
         <Layout>
           <Sider width={200} className="site-layout-background">
@@ -37,7 +33,7 @@ class Container extends Component {
                   <SubMenu key={index} title={item.title}>
                     {item.subs.map((item1, number) => {
                       return (
-                        <Menu.Item key={number} id={number}>
+                        <Menu.Item key={index*Math.random()+number} id={number}>
                           <Link to={item1.key}>{item1.title}</Link>
                         </Menu.Item>
                       );

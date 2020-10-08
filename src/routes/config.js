@@ -50,7 +50,13 @@ const menus = [
     key: "/app/dashboard/index",
     title: "首页",
     icon: "mobile",
-    component: "TodoList",
+    component: "Dashboard",
+  },
+  {
+    key: "/app/authority/index",
+    title: "权限管理",
+    icon: "mobile",
+    component: "Authority",
   },
   {
     key: "/app/table",

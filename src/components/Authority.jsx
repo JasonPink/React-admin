@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Dashborad extends Component {
+class Authority extends Component {
   render() {
     return (
       <div>
-        这里是Dashborad
+        权限管理
       </div>
     );
   }
 }
 
-export default Dashborad;
+export default Authority;
